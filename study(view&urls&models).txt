@@ -1,0 +1,18 @@
+model은 db와 연동되는 일을 한다.
+
+
+view는 template 과 연결해준다.
+예) def hello_world(request):
+     return render(request, 'accountapp/hello_world.html')
+풀이하면) 함수 hello_world(요청):
+            돌려줌 꾸며서(요청(다음 구문에서 경로를 쓴다.), '경로')
+
+
+
+urls는 유저의 요청에 연결 경로를 만들어준다.
+예) pate('코더가 선택할수 있는 경로/', view의 함수 이름, name='코더선택 이름')
+app_name= 을 정해주면 훗날 쓰임이 있다하였다.
+
+예) path('account/', include('accountapp.urls'))
+풀이하면) path('선택할수 있는 경로/', include를 사용하여 ('연결할 app의 urls을 정함'))
+이 예는 BASEDIR의 urls 에서 작성된다.

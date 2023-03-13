@@ -1,0 +1,35 @@
+BASEDIR에 .gitignore 파일 생성
+gitignore 파일 : https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa3gybk9tWFJBYmdXMXdLLUV3c3RMMWVfdDYyUXxBQ3Jtc0ttNzJkRWNmTEtXeFdmUkhlb3QzNmpKUzBoUi1FUmhpQVJEb3RZWXpEOEFXTGF5NzRsRDJfVGhsUWhrekVKV1hHR1YyZ1M5aV9Qbk96aU5CRzBvdWh3V252Yk1CZVgzdGhFSWdCUlkwVTdzamVFa1ljWQ&q=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore%2Fblob%2Fmaster%2FGlobal%2FJetBrains.gitignore
+들어가서 gitignore 설정(venv/ .env db.sqlite3 .idea/ __pycache__/ 등등)
+
+environ 설치하고 (pip install django-environ)
+django-environ 라이브러리 : https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFFjMTMyeGRYQnJETWgwenp0WUxtd1hEMzJEZ3xBQ3Jtc0trc3V6NnhVVUNoZWJIU3ZtZG1aTjFKM3R1emhGSDZPVVB2NWs5OTJ4bVJfUDdLTGFmZmRzSV9tbk1tb1lZb1RrSHdHZWR6YjVJNDZBdVdxVU5KVnVJWDdncXJPVFUzR3gtendFd3pRcmlFelZkcm5jUQ&q=https%3A%2F%2Fdjango-environ.readthedocs.io%2Fen%2Flatest%2F
+들어가서 초기 설정 만들어줍니다.
+1)BASEDIR에 .env 파일을 만들어줍니다.
+2).env 파일 안에 
+DEBUG=on
+SECRET_KEY=secret key
+DATABASE_URL=psql://user:un-githubbedpassword@127.0.0.1:8458/database
+SQLITE_URL=sqlite:///my-local-sqlite.db
+CACHE_URL=memcache://127.0.0.1:11211,127.0.0.1:11212,127.0.0.1:11213
+REDIS_URL=rediscache://127.0.0.1:6379/1?client_class=django_redis.client.DefaultClient&password=ungithubbed-secret
+넣어주고 SECRET_KEY 부분을 project name/settings.py 의 SECRET_KEY부분으로 바꿈
+
+3)setting.py 변경함 
+import environ
+import os
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Take environment variables from .env file
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '.env')
+)
+이렇게 변경하여 줍니다.
+

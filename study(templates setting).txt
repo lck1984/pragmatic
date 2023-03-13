@@ -1,0 +1,15 @@
+base.html을 만들어서 뼈대를 만든후
+BASEDIR의 templates에 저장한다.
+만일 3등분의 구조를 가진다면 header.html, footer.html 을 BASEDIR/templates에 만들고
+<div> 구문을 사용하여 내용을 채운후 header.html, footer.html에 넣는다.
+base.html에는 {% include 'header.html' %}와 {% include 'footer.html' %}를
+이용하여 표기한다.
+base.html의    {% block content %} {% endblock %} 을 넣어서
+헤더와 풋터를 제외한 나머지공간을 변경하여 표기할수 있도록 content를 정한다.
+
+<head>부분에 많은 추가가 이루어질것 같을때에는 BASEDIR/templates에 head.html을 만든다
+그후 base.html 에는 {% include 'head.html' %} 표기한후 코딩은 head.html에서 한다.
+
+style 을 사용할때는 적용 우선순위는
+<div style=> 을 적용 1번으로 하고 page 안에서의 <style></style>안의 구문을 2번으로 한다.
+마지막은 static 폴더안의 css를 적용 3번으로 한다. 이것은 혹시 만든 style의 내용이 겹칠때 적용된다.
