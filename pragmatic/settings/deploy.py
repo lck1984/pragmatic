@@ -6,11 +6,9 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-
-
 # Take environment variables from .env file
 environ.Env.read_env(
-    env_file= os.path.join(BASE_DIR, '.env')
+    env_file=os.path.join(BASE_DIR, '.env')
 )
 
 
@@ -24,8 +22,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-
-
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

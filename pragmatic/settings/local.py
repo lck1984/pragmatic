@@ -5,13 +5,10 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-
-
 # Take environment variables from .env file
 environ.Env.read_env(
-    env_file= os.path.join(BASE_DIR, '.env')
+    env_file=os.path.join(BASE_DIR, '.env')
 )
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -24,8 +21,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -34,4 +29,4 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+ }
