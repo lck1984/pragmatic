@@ -11,23 +11,29 @@ services:
     ports:
       - 80:80
   django_container_gunicorn:
-    image: django_test_image:5
+    image: django_test_image:8
     networks:
       - network
     volumes:
       - static-volume:/home/pragmatic/staticfiles
       - media-volume:/home/pragmatic/media
+    secrets:
+      - MARIADB_PASSWORD
+      - DJANGO_SECRET_KEY
   mariadb:
     image: mariadb:10.5
     networks:
       - network
     volumes:
       - maria-database:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_PASSWORD
     environment:
-      MARIADB_ROOT_PASSWORD: dlckdrud
       MARIADB_DATABASE: django
       MARIADB_USER: lck1984
-      MARIADB_PASSWORD: dlckdrud
+      MARIADB_PASSWORD_FILE: /run/secrets/MARIADB_PASSWORD
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/MARIADB_ROOT_PASSWORD
 
 
 networks:
@@ -38,3 +44,10 @@ volumes:
   media-volume:
   maria-database:
 
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  MARIADB_ROOT_PASSWORD:
+    external: true
+  MARIADB_PASSWORD:
+    external: true
