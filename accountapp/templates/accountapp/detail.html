@@ -24,11 +24,11 @@
             </h5>
             {% else %}
                 {% if target_user == user %}
+              <div style="margin-bottom: 1rem;">
                 <a href="{% url 'profileapp:create' %}">
-                    <h2 style="font-family: 'NanumSquareB;">
-                        Create Profile
-                    </h2>
+                    <button type="button" class="btn btn-outline-dark">Profile Create</button>
                 </a>
+              </div>
                 {% else %}
                     <h2>
                         닉네임 미설정
