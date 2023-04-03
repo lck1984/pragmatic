@@ -2,7 +2,7 @@ FROM python:3.10.0
 
 WORKDIR /home/
 
-RUN echo "testing1234"
+RUN echo "testing123456"
 
 RUN git clone https://github.com/lck1984/pragmatic.git
 

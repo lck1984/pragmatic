@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <div>
+    <div xmlns="http://www.w3.org/1999/html">
         <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
 
             <h1>
@@ -13,8 +13,14 @@
                 {{ target_article.writer.profile.nickname }}
             </h5>
         <div class="d-grid gap-2 d-md-block" style="text-align: left">
-          <button class="btn btn-outline-dark" type="button" onclick="history.go(-1)">BACK</button>
+          <button class="material-icons"
+               style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem;"
+               onclick="history.go(-1)" ">
+                keyboard_backspace
+          </button>
+
         </div>
+
 
         <hr>
 
