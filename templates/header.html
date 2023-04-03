@@ -1,32 +1,35 @@
+{% load static %}
 
     <div class="Eunsoo_header">
         <div>
-            <h1 class="Eunsoo_logo">Eunsoo's History</h1>
+            <a href="{% url 'articleapp:list' %}" class="Eunsoo_logo"><h2>Eunsoo's History</h2></a>
         </div>
-        <div class="pragmatic_header_navbar">
-            <a href="{% url 'articleapp:list' %}" class="pragmatic_header_nav">
-                <span>Articles</span>
+
+{#        <div class="pragmatic_header_navbar">#}
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <a href="{% url 'articleapp:list' %}">
+                <button type="button" class="btn btn-outline-black">Home</button>
             </a>
-            <a href="{% url 'projectapp:list' %}" class="pragmatic_header_nav">
-                <span>Project</span>
+            <a href="{% url 'projectapp:list' %}">
+                <button type="button" class="btn btn-outline-black">Album</button>
             </a>
-            <a href="{% url 'subscribeapp:list' %}" class="pragmatic_header_nav">
-                <span>Subscription</span>
+            <a href="{% url 'subscribeapp:list' %}">
+                <button type="button" class="btn btn-outline-black">Subscription</button>
             </a>
 
             {% if not user.is_authenticated %}
-            <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="pragmatic_header_nav">
-                <span>login</span>
+            <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
+                <button type="button" class="btn btn-outline-black">Login</button>
             </a>
-            <a href="{% url 'accountapp:create' %}" class="pragmatic_header_nav">
-                <span>SignUp</span>
+            <a href="{% url 'accountapp:create' %}">
+                <button type="button" class="btn btn-outline-black">SignUp</button>
             </a>
             {% else %}
-            <a href="{% url 'accountapp:detial' pk=user.pk %}" class="pragmatic_header_nav">
-                <span>MyPage</span>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+                <button type="button" class="btn btn-outline-black">MyPage</button>
             </a>
-            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="pragmatic_header_nav">
-                <span>logout</span>
+            <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+                <button type="button" class="btn btn-outline-black">logout</button>
             </a>
             {% endif %}
         </div>
