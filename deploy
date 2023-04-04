@@ -1,0 +1,8 @@
+처음 portainer에 stack을 만들어 놓고
+
+containers의 django container에 >_ 모양을 클릭하여 connect버튼을 클릭함
+
+그럼 터미널이 나오고 거기서 아래의 명령어 넣는다. 이때 myproject는 만들어 놓은 프로젝트의 이름으로 바꾼다.
+
+python manage.py createsuperuser --settings=myproject.settings.deploy
+

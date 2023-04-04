@@ -24,7 +24,7 @@ class ProfileCreateView(CreateView):
 
     def get_success_url(self):
         from django.urls import reverse
-        return reverse('accountapp:detial', kwargs={'pk': self.object.user.pk})
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
 
 @method_decorator(profile_ownership_required, 'get')
 @method_decorator(profile_ownership_required, 'post')
@@ -36,4 +36,4 @@ class ProfileUpdateView(UpdateView):
 
     def get_success_url(self):
         from django.urls import reverse
-        return reverse('accountapp:detial', kwargs={'pk': self.object.user.pk})
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
