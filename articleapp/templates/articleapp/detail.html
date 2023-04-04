@@ -12,7 +12,7 @@
             <h5>
                 {{ target_article.writer.profile.nickname }}
             </h5>
-        <div class="d-grid gap-2 d-md-block" style="text-align: left">
+        <div style="text-align: left; max-width: 500px; margin: 4rem auto;">
           <button class="material-icons"
                style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem;"
                onclick="history.go(-1)" ">
@@ -24,10 +24,10 @@
 
         <hr>
 
-            <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
+            <img style="width: 95%; border-radius: 1rem; margin: 2rem 0;"
                     src="{{ target_article.image.url }}" alt="">
 
-            <div class="text-start">
+            <div class="text-start" style="margin-left: 1rem;">
                 {{ target_article.content | safe }}
             </div>
 
